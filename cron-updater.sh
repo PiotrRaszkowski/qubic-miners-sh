@@ -64,6 +64,7 @@ if [ "$minerVersion" != "$lastMinerVersion" ]; then
       /usr/sbin/sysctl -w vm.nr_hugepages=$hugePages
     fi
 
+    echo "Restarting $serviceName..."
     systemctl restart $serviceName
 
     rm "qli-Client-$minerVersion-Linux-x64.tar.gz"
@@ -90,6 +91,7 @@ else
     /usr/sbin/sysctl -w vm.nr_hugepages=$hugePages
   fi
 
+  echo "Restarting $serviceName..."
   systemctl restart $serviceName
 fi
 
