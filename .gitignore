@@ -1,0 +1,17 @@
+.idea
+.qubic-miners.iml
+
+*.lock
+/appsettings.json
+/appsettings.production.json
+tmp/
+log/
+qli-runner
+
+.lastMinerVersion
+.lastConfigurationVersion
+
+qli-Client
+qli-Client-*.tar.*
+qli-Service.sh
+qli-Service.sh-e
