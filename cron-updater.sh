@@ -24,13 +24,13 @@ echo "Updating $miner in $(pwd)..."
 cd $minerPath
 echo "Current directory: $(pwd)"
 
+echo "Pulling latest changes..."
+git pull
+
 if [ ! -d "$miner" ]; then
   echo "$miner does not exist, exiting."
   exit 1;
 fi
-
-echo "Pulling latest changes..."
-git pull
 
 minerVersion="`cat .minerVersion`"
 
