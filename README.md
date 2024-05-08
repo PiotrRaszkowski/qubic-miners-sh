@@ -34,6 +34,8 @@ curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski
 */15 * * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
 ```
 
+curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s birdofprey-gpu /q-gpu qli-gpu
+
 Host github.com
     AddKeysToAgent yes
     IgnoreUnknown UseKeychain

@@ -69,6 +69,14 @@ if [ "$minerVersion" != "$lastMinerVersion" ]; then
 
     rm "qli-Client-$minerVersion-Linux-x64.tar.gz"
 else
+  if [ -f "$miner/.hugePages" ]; then
+    hugePages="$(cat "$miner/.hugePages")"
+
+    echo "Setting huge pages to $hugePages"
+
+    /usr/sbin/sysctl -w vm.nr_hugepages=$hugePages
+  fi
+
   if test -f ".lastConfigurationVersion"; then
       lastConfigurationVersion="$(cat .lastConfigurationVersion)"
   else
@@ -81,18 +89,10 @@ else
       echo "Configuration changed from $lastConfigurationVersion to $newConfigurationVersion"
 
       cp "$miner/appsettings.production.json" appsettings.production.json
+
+      echo "Restarting $serviceName..."
+      systemctl restart $serviceName
   fi
-
-  if [ -f "$miner/.hugePages" ]; then
-    hugePages="$(cat "$miner/.hugePages")"
-
-    echo "Setting huge pages to $hugePages"
-
-    /usr/sbin/sysctl -w vm.nr_hugepages=$hugePages
-  fi
-
-  echo "Restarting $serviceName..."
-  systemctl restart $serviceName
 fi
 
 echo "$minerVersion" > .lastMinerVersion
