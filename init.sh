@@ -6,7 +6,7 @@ if [ -z "$minerPath" ]; then
   exit 1;
 fi
 
-co $minerPath
+cd $minerPath
 
 git init
 git remote add origin git@github.com:PiotrRaszkowski/qubic-miners.git
