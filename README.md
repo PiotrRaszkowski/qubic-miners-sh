@@ -27,7 +27,7 @@ curl -s "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/
 ```
 
 ```text
-*/15 * * * * curl -s "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
+*/15 * * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
 ```
 
 Host github.com
