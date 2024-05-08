@@ -23,7 +23,7 @@ echo 'Host github.com
 ```
 
 ```bash
-curl -s "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/init.sh" | bash
+curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/init.sh" | bash -s /q-gpu
 ```
 
 ```bash
