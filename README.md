@@ -26,6 +26,10 @@ echo 'Host github.com
 curl -s "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/init.sh" | bash
 ```
 
+```bash
+curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
+```
+
 ```text
 */15 * * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
 ```

@@ -42,6 +42,9 @@ fi
 
 echo "Current version: $minerVersion, last version: $lastMinerVersion."
 
+echo "Cleaning up old miner files..."
+rm -f *.tar.gz *.tar.gz.[0-9]
+
 if [ "$minerVersion" != "$lastMinerVersion" ]; then
     echo "Miner version changed from $lastMinerVersion to $minerVersion"
 
