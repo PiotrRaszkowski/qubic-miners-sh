@@ -31,7 +31,7 @@ curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski
 ```
 
 ```text
-0 */4 * * * systemctl restart qli
+0 */4 * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-restarter.sh" | bash -s ussenterprise /q
 */15 * * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
 
 0 7 * * * systemctl start qli

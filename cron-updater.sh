@@ -19,10 +19,10 @@ if [ -z "$serviceName" ]; then
   echo "Service name is not provided, using default: $serviceName"
 fi
 
-echo "Updating $miner in $(pwd)..."
-
 cd $minerPath
 echo "Current directory: $(pwd)"
+
+echo "Updating $miner in $(pwd)..."
 
 echo "Pulling latest changes..."
 git pull
@@ -38,7 +38,7 @@ else
     enabled="true"
 fi
 
- echo "Enabled= $enabled"
+echo "Enabled= $enabled"
 
 if [ "$enabled" != "true" ]; then
     echo "$miner is disabled, stopping service and exiting."
@@ -46,6 +46,7 @@ if [ "$enabled" != "true" ]; then
     exit 0;
 fi
 
+##################################### UPDATE MINER #####################################
 minerVersion="$(cat .minerVersion)"
 
 if test -f ".lastMinerVersion"; then
