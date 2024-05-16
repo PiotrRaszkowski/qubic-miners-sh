@@ -47,7 +47,7 @@ if [ -f "$miner/config.json" ]; then
 
     echo "Price threshold is set to $priceThresholdMin"
 
-    apiLoginResponse="$(/usr/bin/curl -s -d '{"userName":"guest@qubic.li", "password":"guest13@Qubic.li"}' -H "Content-Type: application/json" -X POST https://api.qubic.li/Auth/Login)"
+    apiLoginResponse="$(/usr/bin/curl -s -d '{"userName":"guest@qubic.li", "password":"guest13@Qubic.li"}' -H "Content-Type: application/json" -X POST 'https://api.qubic.li/Auth/Login')"
     apiToken=$(echo "$apiLoginResponse" | jq -r .token)
     tickOverviewResponse=$(/usr/bin/curl -s -H "Authorization: Bearer $apiToken" -H "Content-Type: application/json" 'https://api.qubic.li/Network/TickOverview?epoch=&offset=0')
     tickOverviewPrice=$(echo "$tickOverviewResponse" | jq -r .price)
