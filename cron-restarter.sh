@@ -38,7 +38,7 @@ else
     enabled="true"
 fi
 
-echo "Enabled= $enabled"
+echo "Enabled = $enabled"
 
 if [ "$enabled" != "true" ]; then
     echo "$miner is disabled, stopping service and exiting."
