@@ -28,7 +28,8 @@ echo "Pulling latest changes..."
 HOME=/root
 echo "Home directory: $HOME"
 eval `keychain --eval --agents ssh id_ed25519`
-/usr/bin/git pull
+/usr/bin/git fetch
+/usr/bin/git reset --hard origin/main
 
 if [ ! -d "$miner" ]; then
   echo "$miner does not exist, exiting."
