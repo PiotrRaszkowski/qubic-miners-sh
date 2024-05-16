@@ -47,6 +47,13 @@ if [ "$enabled" != "true" ]; then
     exit 0;
 fi
 
+serviceStatus="$(systemctl is-active "$serviceName")"
+
+if [ "$serviceStatus" != "active" ]; then
+    echo "Service is not active, starting..."
+    systemctl start $serviceName
+fi
+
 ##################################### UPDATE MINER #####################################
 minerVersion="$(cat .minerVersion)"
 
