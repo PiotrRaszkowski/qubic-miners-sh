@@ -61,6 +61,8 @@ if [ -f "$miner/config.json" ]; then
       echo "$tickOverviewPrice is lt $priceThresholdMin, miner will be disabled"
       enabled="false"
     fi
+  else
+    echo "Price threshold validation is not enabled, skipping."
   fi
 else
   enabled="true"
