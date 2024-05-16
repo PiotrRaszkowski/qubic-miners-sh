@@ -32,8 +32,8 @@ if [ ! -d "$miner" ]; then
   exit 1;
 fi
 
-if [ -f "$miner/.config.json" ]; then
-    enabled="$(jq .enabled "$miner/.config.json")"
+if [ -f "$miner/config.json" ]; then
+    enabled="$(jq .enabled "$miner/config.json")"
 else
     enabled="true"
 fi
@@ -45,3 +45,6 @@ if [ "$enabled" != "true" ]; then
     systemctl stop $serviceName
     exit 0;
 fi
+
+systemctl stop $serviceName
+systemctl start $serviceName
