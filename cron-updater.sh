@@ -54,6 +54,11 @@ if [ -f "$miner/config.json" ]; then
 
     echo "Current price is: $tickOverviewPrice"
 
+    if [ "$tickOverviewPrice" == "null" ]; then
+      echo "Failed to get price from API, exiting."
+      exit 1;
+    fi
+
     if awk "BEGIN {exit !($tickOverviewPrice >= $priceThresholdMin)}"; then
       echo "$tickOverviewPrice is ge $priceThresholdMin, miner will be enabled"
       enabled="true"
