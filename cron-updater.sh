@@ -25,7 +25,7 @@ echo "Current directory: $(pwd)"
 echo "Updating $miner in $(pwd)..."
 
 echo "Pulling latest changes..."
-git pull
+/usr/bin/git pull
 
 if [ ! -d "$miner" ]; then
   echo "$miner does not exist, exiting."
