@@ -52,6 +52,8 @@ if [ -f "$miner/config.json" ]; then
     tickOverviewResponse=$(/usr/bin/curl -s -H "Authorization: Bearer $apiToken" -H "Content-Type: application/json" 'https://api.qubic.li/Network/TickOverview?epoch=&offset=0')
     tickOverviewPrice=$(echo "$tickOverviewResponse" | jq -r .price)
 
+    echo "Current price is: $tickOverviewPrice"
+
     if (( $(echo "$tickOverviewPrice >= $priceThresholdMin" | bc -l) )); then
       enabled="true"
     else
