@@ -27,6 +27,7 @@ echo "Updating $miner in $(pwd)..."
 echo "Pulling latest changes..."
 HOME=/root
 echo "Home directory: $HOME"
+eval `keychain --eval --agents ssh id_ed25519`
 /usr/bin/git pull
 
 if [ ! -d "$miner" ]; then
