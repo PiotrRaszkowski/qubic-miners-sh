@@ -54,11 +54,13 @@ if [ -f "$miner/config.json" ]; then
 
     echo "Current price is: $tickOverviewPrice"
 
-    #if (( $(echo "$tickOverviewPrice >= $priceThresholdMin" | bc -l) )); then
-    #  enabled="true"
-    #else
-    #  enabled="false"
-    #fi
+    if awk "BEGIN {exit !($tickOverviewPrice >= $priceThresholdMin)}"; then
+      echo "$tickOverviewPrice is ge $priceThresholdMin, miner will be enabled"
+      enabled="true"
+    else
+      echo "$tickOverviewPrice is lt $priceThresholdMin, miner will be disabled"
+      enabled="false"
+    fi
   fi
 else
   enabled="true"
