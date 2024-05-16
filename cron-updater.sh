@@ -32,10 +32,9 @@ if [ ! -d "$miner" ]; then
   exit 1;
 fi
 
-if [ -f "$miner/.config.json" ]; then
-  cat "$miner/.config.json"
-  enabled="$(jq .enabled "$miner/.config.json")"
-  echo "Enabled = $enabled"
+if [ -f "$miner/config.json" ]; then
+  cat "$miner/config.json"
+  enabled="$(jq .enabled "$miner/config.json")"
 else
   enabled="true"
 fi
