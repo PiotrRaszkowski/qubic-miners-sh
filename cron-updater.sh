@@ -26,7 +26,7 @@ echo "Updating $miner in $(pwd)..."
 
 echo "Pulling latest changes..."
 HOME=/root
-echo "Home directory: $(HOME)"
+echo "Home directory: $HOME"
 /usr/bin/git pull
 
 if [ ! -d "$miner" ]; then
