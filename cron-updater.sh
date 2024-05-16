@@ -34,6 +34,7 @@ fi
 
 if [ -f "$miner/.config.json" ]; then
     enabled="$(jq .enabled "$miner/.config.json")"
+    echo "Enabled = $enabled"
 else
     enabled="true"
 fi
