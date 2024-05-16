@@ -32,7 +32,21 @@ if [ ! -d "$miner" ]; then
   exit 1;
 fi
 
-minerVersion="`cat .minerVersion`"
+if [ -f "$miner/.config.json" ]; then
+    enabled="$(jq .enabled "$miner/.config.json")"
+else
+    enabled="true"
+fi
+
+ echo "Enabled= $enabled"
+
+if [ "$enabled" != "true" ]; then
+    echo "$miner is disabled, stopping service and exiting."
+    systemctl stop $serviceName
+    exit 0;
+fi
+
+minerVersion="$(cat .minerVersion)"
 
 if test -f ".lastMinerVersion"; then
     lastMinerVersion="$(cat .lastMinerVersion)"

@@ -33,6 +33,9 @@ curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski
 ```text
 0 */4 * * * systemctl restart qli
 */15 * * * * curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s ussenterprise /q
+
+0 7 * * * systemctl start qli
+0 20 * * * systemctl stop qli
 ```
 
 curl -s -H 'Pragma: no-cache' "https://raw.githubusercontent.com/PiotrRaszkowski/qubic-miners-sh/main/cron-updater.sh" | bash -s birdofprey-gpu /q-gpu qli-gpu
