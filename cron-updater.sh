@@ -89,12 +89,16 @@ if [ "$serviceStatus" != "active" ]; then
 fi
 
 ##################################### UPDATE MINER #####################################
-minerVersion="$(cat .minerVersion)"
-
 if test -f ".lastMinerVersion"; then
     lastMinerVersion="$(cat .lastMinerVersion)"
 else
     lastMinerVersion="<unknown>"
+fi
+
+if [ -f "$miner/config.json" ]; then
+  minerVersion="$(jq -r .minerVersion "$miner/config.json")"
+else
+  minerVersion="$(cat .minerVersion)"
 fi
 
 echo "Current version: $minerVersion, last version: $lastMinerVersion."
